@@ -1,0 +1,223 @@
+local execute = vim.api.nvim_command
+local fn = vim.fn
+
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
+-- returns the require for use in `config` parameter of packer's use
+-- expects the name of the config file
+function get_config(name)
+    return string.format("require(\"config/%s\")", name)
+end
+
+-- bootstrap packer if not installed
+if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({
+        "git", "clone", "https://github.com/wbthomason/packer.nvim",
+        install_path
+    })
+    execute "packadd packer.nvim"
+end
+
+-- initialize and configure packer
+local packer = require("packer")
+packer.init {
+    enable = true, -- enable profiling via :PackerCompile profile=true
+    threshold = 0 -- the amount in ms that a plugins load time must be over for it to be included in the profile
+}
+local use = packer.use
+packer.reset()
+
+-- actual plugins list
+use "wbthomason/packer.nvim"
+
+use {
+    "nvim-telescope/telescope.nvim",
+    cmd = {"Telescope"},
+    keys = {"<leader>ff"},
+    requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}},
+    config = get_config("telescope")
+}
+
+use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
+
+use {"numToStr/Navigator.nvim", config = get_config("navigator")}
+
+use {
+    "nvim-lualine/lualine.nvim",
+    config = get_config("lualine"),
+    event = "VimEnter",
+    requires = {"kyazdani42/nvim-web-devicons", opt = true}
+}
+
+use {
+    "norcalli/nvim-colorizer.lua",
+    event = "BufReadPre",
+    config = get_config("colorizer")
+}
+
+use {
+    "numToStr/Comment.nvim",
+    opt = true,
+    keys = {"gc", "gcc"},
+    config = get_config("comment")
+}
+
+use {"windwp/nvim-autopairs", config = get_config("autopairs")}
+
+use {
+    "nvim-treesitter/nvim-treesitter",
+    config = get_config("treesitter"),
+    run = ":TSUpdate"
+}
+
+use "nvim-treesitter/nvim-treesitter-textobjects"
+
+use {
+    "hrsh7th/nvim-cmp",
+    requires = {
+        {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-path"},
+        {"hrsh7th/cmp-cmdline"}, {"hrsh7th/cmp-vsnip"},
+        {"f3fora/cmp-spell", {"hrsh7th/cmp-calc"}, {"hrsh7th/cmp-emoji"}}
+    },
+    config = get_config("cmp")
+}
+
+use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
+
+use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
+
+use {"mhartington/formatter.nvim", config = get_config("formatter")}
+
+use {
+    "phaazon/hop.nvim",
+    branch = "v1",
+    keys = {"<leader>j"},
+    config = get_config("hop")
+}
+
+-- requirement for Neogit
+use {
+    "sindrets/diffview.nvim",
+    cmd = {
+        "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles",
+        "DiffviewFocusFiles"
+    },
+    config = get_config("diffview")
+}
+
+use {
+    "TimUntersberger/neogit",
+    requires = {"nvim-lua/plenary.nvim"},
+    cmd = "Neogit",
+    config = get_config("neogit")
+}
+
+use {"f-person/git-blame.nvim", config = get_config("git-blame")}
+
+use {
+    "lewis6991/gitsigns.nvim",
+    requires = {"nvim-lua/plenary.nvim"},
+    event = "BufReadPre",
+    config = get_config("gitsigns")
+}
+
+use "p00f/nvim-ts-rainbow"
+
+use {"kevinhwang91/nvim-bqf", requires = {{"junegunn/fzf"}}}
+
+use {
+    "akinsho/nvim-bufferline.lua",
+    requires = "kyazdani42/nvim-web-devicons",
+    event = "BufReadPre",
+    config = get_config("bufferline")
+}
+
+use "famiu/bufdelete.nvim"
+
+use {"neovim/nvim-lspconfig", config = get_config("lsp")}
+
+use {"ray-x/lsp_signature.nvim", requires = {{"neovim/nvim-lspconfig"}}}
+
+use {"onsails/lspkind-nvim", requires = {{"famiu/bufdelete.nvim"}}}
+
+use {
+    "simrat39/symbols-outline.nvim",
+    cmd = {"SymbolsOutline"},
+    config = get_config("symbols")
+}
+
+use {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
+    config = [[require("config/indent-blankline")]]
+}
+
+use {
+    "akinsho/nvim-toggleterm.lua",
+    keys = {"<C-y>", "<leader>fl"},
+    config = get_config("toggleterm")
+}
+
+use {
+    "blackCauldron7/surround.nvim",
+    config = function()
+        vim.g.surround_mappings_style = "surround"
+        require"surround".setup {}
+    end
+}
+
+use "sotte/presenting.vim"
+
+use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    cmd = {"TroubleToggle", "Trouble"},
+    config = get_config("trouble")
+}
+
+use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    cmd = {"TodoTrouble", "TodoTelescope"},
+    event = "BufReadPost",
+    config = get_config("todo")
+}
+
+use {"ahmedkhalf/project.nvim", config = get_config("project")}
+
+use "ironhouzi/starlite-nvim"
+
+use {"zeertzjq/which-key.nvim", branch = "patch-1", keys = {"<leader>"}, config = get_config("which")}
+
+use "junegunn/vim-easy-align" -- no lua alternative
+
+use "rhysd/vim-grammarous"
+
+use {"RRethy/vim-illuminate", event = "CursorHold"}
+
+use {
+    "ptzz/lf.vim",
+    requires = "voldikss/vim-floaterm",
+    cmd = "<leader>fl",
+    config = get_config("lf")
+}
+
+use {"NTBBloodbath/doom-one.nvim", config = get_config("doom-one")}
+
+use {
+    "karb94/neoscroll.nvim",
+    keys = {"<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-e>", "zt", "zz", "zb"},
+    config = get_config("neoscroll")
+}
+
+use {"ThePrimeagen/harpoon", requires = {"nvim-lua/plenary.nvim"}}
+
+use {"tweekmonster/startuptime.vim"}
+
+use "marko-cerovac/material.nvim"
+-- TODO: ????
+-- https://github.com/glepnir/lspsaga.nvim
+-- use 'glepnir/lspsaga.nvim'
+-- Too intrusive (fFtT, sS zZ, xX ...)
+-- https://github.com/ggandor/lightspeed.nvim
+-- use 'ggandor/lightspeed.nvim'
