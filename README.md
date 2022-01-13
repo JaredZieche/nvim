@@ -1,6 +1,6 @@
 # My NeoVim Configuration
 
-I copied this configuration from [allaman/nvim](https://github.com/allaman/nvim). My current nvim configuration is in my dotfiles and I want to preserve that for usage until I get a new setup that I like. I am trying to separate this config and use a pure lua setup and mvoe away from COC in favor of built-in lsp.
+I copied this configuration from [allaman/nvim](https://github.com/allaman/nvim). My current nvim configuration is in my [dotfiles](https://github.com/jaredzieche/nvim) and I want to preserve that for usage until I get a new setup that I like. I am trying to separate this config and use a pure lua setup and move away from COC in favor of built-in lsp.
 
 ## Features
 
@@ -39,7 +39,6 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 │   └── plugins.lua   # define plugins to be managed via Packer
 ├── plugins           # packer_compiled
 ├── snippets          # snippets for vsnip
-└── spell             # my spell files linked from another repo
 ```
 
 ## Requirements

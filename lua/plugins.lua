@@ -86,6 +86,8 @@ use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
 
 use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
 
+use {"bammab/vscode-snippets-for-ansible"}
+
 use {"mhartington/formatter.nvim", config = get_config("formatter")}
 
 use {
@@ -135,6 +137,8 @@ use {
 use "famiu/bufdelete.nvim"
 
 use {"neovim/nvim-lspconfig", config = get_config("lsp")}
+
+use {"williamboman/nvim-lsp-installer", config = get_config("lsp")}
 
 use {"ray-x/lsp_signature.nvim", requires = {{"neovim/nvim-lspconfig"}}}
 
@@ -214,7 +218,7 @@ use {"ThePrimeagen/harpoon", requires = {"nvim-lua/plenary.nvim"}}
 
 use {"tweekmonster/startuptime.vim"}
 
-use "marko-cerovac/material.nvim"
+use {"marko-cerovac/material.nvim"}
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'

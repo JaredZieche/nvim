@@ -50,7 +50,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local servers = {
     "gopls", "bashls", "jedi_language_server", "dockerls", "terraformls",
-    "tsserver", "texlab", "yamlls", "jsonls"
+    "tsserver", "texlab", "yamlls", "jsonls", "ansiblels"
 }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
@@ -146,8 +146,8 @@ for _, lsp in ipairs(servers) do
     })
 end
 
-local sumneko_root_path = os.getenv("HOME") .. ".cache/lua-language-server"
-local sumneko_binary = "/usr/local/bin/lua-language-server"
+local sumneko_root_path = os.getenv("HOME") .. "/.cache/lua-language-server"
+local sumneko_binary =  os.getenv("HOME") .. "/.local/bin/lua-language-server"
 require"lspconfig".sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     capabilities = capabilities,
@@ -175,6 +175,17 @@ require"lspconfig".sumneko_lua.setup {
         }
     }
 }
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.settings({
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
 -- alternative to formatter but yamlfix is not working and I need this for respecting yamllint config
 -- but yamlfix is messing up ansible files ... 😠
 -- require('lspconfig')['efm'].setup{
