@@ -86,7 +86,7 @@ use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
 
 use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
 
-use {"bammab/vscode-snippets-for-ansible"}
+-- use {"bammab/vscode-snippets-for-ansible"} This plugin causes typing lag in yaml files, find a new snippet source or create your own
 
 use {"mhartington/formatter.nvim", config = get_config("formatter")}
 
@@ -218,7 +218,7 @@ use {"ThePrimeagen/harpoon", requires = {"nvim-lua/plenary.nvim"}}
 
 use {"tweekmonster/startuptime.vim"}
 
-use {"marko-cerovac/material.nvim"}
+use {"marko-cerovac/material.nvim", config = get_config("material")}
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'

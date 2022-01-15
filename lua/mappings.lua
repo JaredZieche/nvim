@@ -4,6 +4,7 @@ expr_options = {noremap = true, expr = true, silent = true}
 
 -- map the leader key
 vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", default_options)
+vim.g.material_style = 'deep ocean'
 vim.g.mapleader = " "
 
 -- center search results
@@ -49,3 +50,6 @@ map("n", "*", "<cmd>lua require'starlite'.star()<CR>", default_options)
 map("n", "g*", "<cmd>lua require'starlite'.g_star()<CR>", default_options)
 map("n", "#", "<cmd>lua require'starlite'.hash()<CR>", default_options)
 map("n", "g#", "<cmd>lua require'starlite'.g_hash()<CR>", default_options)
+
+-- Enable style toggling for material
+map('n', 'mm', [[<Cmd>lua require('material.functions').toggle_style()<CR>]], default_options)
