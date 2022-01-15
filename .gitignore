@@ -1,3 +1,7 @@
+### Nvim Packer ###
+plugin/
+packer_compiled.lua
+
 ### Lua ###
 # Compiled Lua sources
 luac.out
