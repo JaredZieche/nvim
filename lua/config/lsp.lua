@@ -146,8 +146,8 @@ for _, lsp in ipairs(servers) do
     })
 end
 
-local sumneko_root_path = os.getenv("HOME") .. "/.cache/lua-language-server"
-local sumneko_binary =  os.getenv("HOME") .. "/.local/bin/lua-language-server"
+local sumneko_root_path = os.getenv("HOME") .. "/.local/share/nvim/lsp_servers/sumneko_lua"
+local sumneko_binary =  os.getenv("HOME") .. "/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
 require"lspconfig".sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     capabilities = capabilities,
