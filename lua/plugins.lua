@@ -114,6 +114,15 @@ use {
     config = get_config("neogit")
 }
 
+use {
+    "pwntester/octo.nvim",
+    requires = {
+        "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim",
+        "kyazdani42/nvim-web-devicons"
+    },
+    config = get_config("octo")
+}
+
 use {"f-person/git-blame.nvim", config = get_config("git-blame")}
 
 use {
@@ -191,7 +200,12 @@ use {"ahmedkhalf/project.nvim", config = get_config("project")}
 
 use "ironhouzi/starlite-nvim"
 
-use {"zeertzjq/which-key.nvim", branch = "patch-1", keys = {"<leader>"}, config = get_config("which")}
+use {
+    "zeertzjq/which-key.nvim",
+    branch = "patch-1",
+    keys = {"<leader>"},
+    config = get_config("which")
+}
 
 use "junegunn/vim-easy-align" -- no lua alternative
 

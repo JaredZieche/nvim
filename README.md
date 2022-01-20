@@ -13,7 +13,7 @@ I copied this configuration from [allaman/nvim](https://github.com/allaman/nvim)
 - Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - Language server installer via [nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
 - Asynchronous auto formatting via [Formatter.nvim](https://github.com/mhartington/formatter.nvim)
-- Git via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [git-blame](https://github.com/f-person/git-blame.nvim), and [gitui](https://github.com/extrawurst/gitui)
+- Git via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [git-blame](https://github.com/f-person/git-blame.nvim), [octo.nvim](https://github.com/pwntester/octo.nvim) and [gitui](https://github.com/extrawurst/gitui)
 - File tree navigation/manipulation via [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
 - Awesome status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
@@ -22,7 +22,6 @@ I copied this configuration from [allaman/nvim](https://github.com/allaman/nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Easy Tmux navigation with your homerow via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
 - Schema integration via LSPs like package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
-- and much more...
 
 ## Structure
 
@@ -56,11 +55,17 @@ There are some tools that are required in order to use some functions.
   - [luarocks](https://github.com/luarocks/luarocks) and `luarocks install --server=https://luarocks.org/dev luaformatter`
   - [black](https://github.com/psf/black)
 - Language servers for the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
-  - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
   - `go get golang.org/x/tools/gopls`
-  - [terraform-ls](https://github.com/hashicorp/terraform-ls)
-  - [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
-  - [lua-language-server](https://github.com/sumneko/lua-language-server)
+  - Install language servers with nvim-lsp-installer :LspInstall
+    - bashls
+    - dockerls
+    - yamls
+    - [terraformls](https://github.com/hashicorp/terraform-ls)
+    - terraformls
+    - ansiblels
+    - [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
+    - [sumneko_lua](https://github.com/sumneko/lua-language-server)
+    - jedi_language_server
 - For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-grammarous) Java 8+ is required
 
 ## Inspiration
