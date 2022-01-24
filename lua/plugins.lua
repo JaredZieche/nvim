@@ -201,8 +201,8 @@ use {"ahmedkhalf/project.nvim", config = get_config("project")}
 use "ironhouzi/starlite-nvim"
 
 use {
-    "zeertzjq/which-key.nvim",
-    branch = "patch-1",
+    "folke/which-key.nvim",
+    branch = "main",
     keys = {"<leader>"},
     config = get_config("which")
 }
@@ -220,7 +220,12 @@ use {
     config = get_config("lf")
 }
 
-use {"NTBBloodbath/doom-one.nvim", config = get_config("doom-one")}
+use {
+    "NTBBloodbath/doom-one.nvim",
+    opt = true,
+    cmd = "colorscheme doom-one",
+    config = get_config("doom-one")
+}
 
 use {
     "karb94/neoscroll.nvim",
