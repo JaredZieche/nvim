@@ -98,7 +98,7 @@ cmp.setup({
     },
     sources = {
         {name = "nvim_lsp"}, {name = "buffer", keyword_length = 5},
-        {name = "vsnip"}, {name = "calc"}, {name = "emoji"}, {name = "spell"},
+        {name = "luasnip"}, {name = "calc"}, {name = "emoji"}, {name = "spell"},
         {name = "path"}
     }
 })

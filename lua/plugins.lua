@@ -76,13 +76,19 @@ use {
     "hrsh7th/nvim-cmp",
     requires = {
         {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-path"},
-        {"hrsh7th/cmp-cmdline"}, {"hrsh7th/cmp-vsnip"},
+        {"hrsh7th/cmp-cmdline"}, {"saadparwaiz1/cmp_luasnip"},
         {"f3fora/cmp-spell", {"hrsh7th/cmp-calc"}, {"hrsh7th/cmp-emoji"}}
     },
     config = get_config("cmp")
 }
 
 use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
+
+use {"", config = get_config("vsnip")}
+
+use {"L3MON4D3/LuaSnip", config = get_config("luasnip")}
+
+use {"saadparwaiz1/cmp_luasnip"}
 
 use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
 
