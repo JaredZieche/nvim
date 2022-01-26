@@ -28,7 +28,7 @@ require("material").setup({
 
     high_visibility = {
         lighter = false, -- Enable higher contrast text for lighter style
-        darker = true -- Enable higher contrast text for darker style
+        darker = false -- Enable higher contrast text for darker style
     },
 
     disable = {

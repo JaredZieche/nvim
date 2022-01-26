@@ -66,7 +66,7 @@ require("which-key").setup {
 }
 
 local wk = require("which-key")
-default_options = {noremap = true, silent = true}
+local default_options = {noremap = true, silent = true}
 
 -- register non leader based mappings
 wk.register({ga = {"<Plug>(EasyAlign)", "Align", mode = "x"}})

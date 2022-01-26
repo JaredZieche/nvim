@@ -3,7 +3,7 @@
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.md,*.lua,*.yaml,*.yml,*.go,*.py,*.json FormatWrite
+  autocmd BufWritePost *.md,*.lua,*.yaml,*.yml,*.go,*.py,*.json,*.tf FormatWrite
 augroup END
 ]], true)
 
@@ -43,7 +43,7 @@ require("formatter").setup({
                 return {
                     exe = "prettier",
                     args = {
-                        "--stdin-filepath",
+                        "--stdin-filepath", "--tab-width 4",
                         vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
                     },
                     stdin = true

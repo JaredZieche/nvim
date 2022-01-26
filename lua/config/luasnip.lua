@@ -33,3 +33,5 @@ ls.config.set_config({
         return vim.split(vim.bo.filetype, ".", true)
     end
 })
+
+require("luasnip.loaders.from_vscode").load({paths={'~/.config/nvim/snippets'}})

@@ -82,15 +82,11 @@ use {
     config = get_config("cmp")
 }
 
-use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
-
-use {"", config = get_config("vsnip")}
-
 use {"L3MON4D3/LuaSnip", config = get_config("luasnip")}
 
 use {"saadparwaiz1/cmp_luasnip"}
 
-use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
+use {"rafamadriz/friendly-snippets", requires = {{"L3MON4D3/LuaSnip"}}}
 
 -- use {"bammab/vscode-snippets-for-ansible"} This plugin causes typing lag in yaml files, find a new snippet source or create your own
 
