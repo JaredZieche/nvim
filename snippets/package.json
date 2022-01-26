@@ -1,0 +1,29 @@
+{
+    "name": "my-snippets",
+    "displayName": "my snippets",
+    "description": "Provides 550+ code snippets of Hashicorp's Terraform cloud orchestration tool.",
+    "author": {
+        "name": "jared zieche",
+        "email": "jaredzieche@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jaredzieche/nvim.git"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "terraform",
+                "path": "./terraform.json"
+            },
+            {
+                "language": "terraform",
+                "path": "./terraform.json2"
+            }
+        ]
+    },
+    "license": "MIT"
+}
