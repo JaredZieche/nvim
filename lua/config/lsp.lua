@@ -149,7 +149,7 @@ for _, lsp in ipairs(servers) do
         hint_prefix = "🐼 ",
         -- use_lspsaga = false,  -- set to true if you want to use lspsaga popup
         handler_opts = {
-            border = "shadow" -- double, single, shadow, none
+            border = "single" -- double, single, shadow, none
         }
     })
 end
