@@ -240,6 +240,9 @@ use {"ThePrimeagen/harpoon", requires = {"nvim-lua/plenary.nvim"}}
 use {"tweekmonster/startuptime.vim"}
 
 use {"marko-cerovac/material.nvim", config = get_config("material")}
+
+use {"sidebar-nvim/sidebar.nvim", config = get_config("sidebar")}
+
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'

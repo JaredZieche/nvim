@@ -108,6 +108,7 @@ wk.register({
         l = {"<cmd>Lf<cr>", "Open LF"},
         p = {"<cmd>NvimTreeToggle<cr>", "Toogle Tree"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
+        b = {"<cmd>SidebarNvimToggle<cr>", "Toggle SideBar"},
         T = {"<cmd>NvimTreeFindFile<CR>", "Find in Tree"}
     },
     g = {
