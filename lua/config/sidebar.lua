@@ -6,10 +6,13 @@ require("sidebar-nvim").setup({
     initial_width = 35,
     hide_statusline = false,
     update_interval = 1000,
-    sections = {"datetime", "git", "diagnostics"},
+    sections = {"datetime", "git", "diagnostics", "containers", "todos"},
     section_separator = {"", "-----", ""},
     containers = {attach_shell = "/bin/sh", show_all = true, interval = 5000},
-    datetime = {format = "%a %b %d, %H:%M", clocks = {{name = "local"}}},
+    datetime = {
+        format = "%a %b %d, %H:%M",
+        clocks = {{name = "local", offset = -5}}
+    },
     todos = {ignored_paths = {"~"}},
     disable_closing_prompt = false
 })

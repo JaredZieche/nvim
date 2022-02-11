@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "bash", "cmake", "dockerfile", "go", "hcl", "html", "java", "javascript", "json", "latex", "ledger", "lua", "python", "toml", "yaml"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = { "bash", "cmake", "dockerfile", "go", "hcl", "html", "java", "javascript", "json", "ledger", "lua", "python", "toml", "yaml"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { }, -- List of parsers to ignore installing
   highlight = {
     enable = true,  -- false will disable the whole extension
@@ -15,7 +15,7 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   indent = {
-    enable = true
+    enable = false
   },
   autopairs = {
     { enable = true }
