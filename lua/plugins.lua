@@ -243,6 +243,7 @@ use {"marko-cerovac/material.nvim", config = get_config("material")}
 
 use {"sidebar-nvim/sidebar.nvim", config = get_config("sidebar")}
 
+use {"ellisonleao/glow.nvim"}
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
