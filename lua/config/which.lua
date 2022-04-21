@@ -136,10 +136,7 @@ wk.register({
     h = {
         name = "Harpoon",
         a = {"<cmd>lua require('harpoon.mark').add_file()<cr>", "Add file"},
-        u = {
-            "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-            "Open Menu"
-        },
+        u = {"<cmd>Telescope harpoon marks<cr>", "Open Menu"},
         ["1"] = {
             "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 1"
         },
@@ -185,7 +182,6 @@ wk.register({
     },
     m = {
         name = "Misc",
-        t = {"<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm"},
         s = {"<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline"}
     },
     s = {

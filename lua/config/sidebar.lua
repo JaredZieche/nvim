@@ -17,5 +17,6 @@ sidebar.setup({
         clocks = {{name = "local UTC", offset = 5}}
     },
     todos = {ignored_paths = {"~"}},
+    files = {icon = "", show_hidden = true, ignored_paths = {"%.git$"}},
     disable_closing_prompt = false
 })
