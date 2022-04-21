@@ -32,6 +32,7 @@ g.nvim_tree_icons = {
 }
 local tree_cb = require"nvim-tree.config".nvim_tree_callback
 require("nvim-tree").setup {
+    auto_reload_on_write = true,
     -- disables netrw completely
     disable_netrw = true,
     -- disable window picker
@@ -124,6 +125,48 @@ require("nvim-tree").setup {
                 {key = "q", cb = tree_cb("close")},
                 {key = "g?", cb = tree_cb("toggle_help")}
             }
+        }
+    },
+    renderer = {
+        indent_markers = {
+            enable = true,
+            icons = {corner = "└ ", edge = "│ ", none = "  "}
+        },
+        icons = {webdev_colors = true}
+    },
+    hijack_directories = {enable = true, auto_open = true},
+    filters = {dotfiles = false, custom = {}, exclude = {}},
+    git = {enable = true, ignore = true, timeout = 400},
+    actions = {
+        use_system_clipboard = true,
+        change_dir = {enable = true, global = false},
+        open_file = {
+            quit_on_open = true,
+            resize_window = false,
+            window_picker = {
+                enable = true,
+                chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+                exclude = {
+                    filetype = {
+                        "notify", "packer", "qf", "diff", "fugitive",
+                        "fugitiveblame"
+                    },
+                    buftype = {"nofile", "terminal", "help"}
+                }
+            }
+        }
+    },
+    trash = {cmd = "trash", require_confirm = true},
+    log = {
+        enable = false,
+        truncate = false,
+        types = {
+            all = false,
+            config = false,
+            copy_paste = false,
+            diagnostics = false,
+            git = false,
+            profile = false
         }
     }
 }
