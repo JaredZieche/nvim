@@ -22,7 +22,7 @@ end
 local packer = require("packer")
 packer.init {
     enable = true, -- enable profiling via :PackerCompile profile=true
-    threshold = 0 -- the amount in ms that a plugins load time must be over for it to be included in the profile
+    threshold = 1 -- the amount in ms that a plugins load time must be over for it to be included in the profile
 }
 local use = packer.use
 packer.reset()
@@ -96,7 +96,8 @@ use {
     "phaazon/hop.nvim",
     branch = "v1",
     keys = {"<leader>j"},
-    config = get_config("hop")
+    config = get_config("hop"),
+    rocks = {"hop", server = "https://luarocks.org/dev"}
 }
 
 -- requirement for Neogit
@@ -140,6 +141,7 @@ use {"kevinhwang91/nvim-bqf", requires = {{"junegunn/fzf"}}}
 
 use {
     "akinsho/nvim-bufferline.lua",
+    tag = "*",
     requires = "kyazdani42/nvim-web-devicons",
     event = "BufReadPre",
     config = get_config("bufferline")
@@ -169,6 +171,7 @@ use {
 
 use {
     "akinsho/nvim-toggleterm.lua",
+    tag = "*",
     keys = {"<C-y>", "<leader>fl"},
     config = get_config("toggleterm")
 }
@@ -180,8 +183,6 @@ use {
         require"surround".setup {}
     end
 }
-
-use "sotte/presenting.vim"
 
 use {
     "folke/trouble.nvim",
@@ -213,15 +214,6 @@ use "junegunn/vim-easy-align" -- no lua alternative
 
 use "rhysd/vim-grammarous"
 
-use {"RRethy/vim-illuminate", event = "CursorHold"}
-
-use {
-    "ptzz/lf.vim",
-    requires = "voldikss/vim-floaterm",
-    cmd = "<leader>fl",
-    config = get_config("lf")
-}
-
 use {
     "NTBBloodbath/doom-one.nvim",
     opt = true,
@@ -239,11 +231,11 @@ use {"ThePrimeagen/harpoon", requires = {"nvim-lua/plenary.nvim"}}
 
 use {"tweekmonster/startuptime.vim"}
 
-use {"marko-cerovac/material.nvim", config = get_config("material")}
+use {"marko-cerovac/material.nvim", tag = "*", config = get_config("material")}
 
-use {"sidebar-nvim/sidebar.nvim", config = get_config("sidebar")}
+use {"sidebar-nvim/sidebar.nvim", tag = "*", config = get_config("sidebar")}
 
-use {"ellisonleao/glow.nvim"}
+use {"natecraddock/workspaces.nvim", config = get_config("workspaces")}
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'

@@ -1,6 +1,5 @@
 local g = vim.g
 
-g.nvim_tree_indent_markers = 1 -- 0 by default, this option shows indent markers when folders are open
 g.nvim_tree_git_hl = 1 -- 0 by default, will enable file highlight for git attributes (can be used without the icons).
 g.nvim_tree_highlight_opened_files = 1 -- 0 by default, will enable folder and file icon highlight for opened files/directories.
 g.nvim_tree_root_folder_modifier = ":~" -- This is the default. See :help filename-modifiers for more options
@@ -41,12 +40,12 @@ require("nvim-tree").setup {
     gitignore = 1, -- 0 by default
     -- hijack netrw window on startup
     hijack_netrw = true,
+    -- 0 by default, this option shows indent markers when folders are open
+    nvim_tree_indent_markers = 1,
     -- open the tree when running this setup function
     open_on_setup = true,
     -- will not open on setup if the filetype is in this list
     ignore_ft_on_setup = {},
-    -- closes neovim automatically when the tree is the last **WINDOW** in the view
-    auto_close = true,
     -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
     open_on_tab = true,
     -- hijack the cursor in the tree to put it at the start of the filename

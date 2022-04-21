@@ -203,7 +203,8 @@ wk.register({
         P = {
             "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
             "Colorscheme with Preview"
-        }
+        },
+        w = {"<cmd>Telescope workspaces<cr>", "Workspaces"}
     },
     t = {
         name = "Trouble",

@@ -1,4 +1,4 @@
-vim.g.material_style = "deep ocean"
+vim.g.material_style = "palenight"
 
 require("material").setup({
 
@@ -37,6 +37,8 @@ require("material").setup({
         term_colors = false, -- Prevent the theme from setting terminal colors
         eob_lines = false -- Hide the end-of-buffer lines
     },
+
+    async_loading = true,
 
     custom_highlights = {} -- Overwrite highlights with your own
 })
