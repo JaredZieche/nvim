@@ -236,6 +236,13 @@ use {"marko-cerovac/material.nvim", tag = "*", config = get_config("material")}
 use {"sidebar-nvim/sidebar.nvim", tag = "*", config = get_config("sidebar")}
 
 use {"natecraddock/workspaces.nvim", config = get_config("workspaces")}
+
+use {
+    "IndianBoy42/tree-sitter-just",
+    config = function()
+        require"tree-sitter-just".setup {}
+    end
+}
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
