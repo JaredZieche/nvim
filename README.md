@@ -27,7 +27,6 @@ This is my neovim configuration using lua as the main language. I have tested th
 - Status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
 - Buffer management via [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-- [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Easy Tmux navigation with your homerow via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
 - Schema integration via LSPs like package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
