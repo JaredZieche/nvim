@@ -120,15 +120,6 @@ use {
   config = get_config("neogit")
 }
 
-use {
-  "pwntester/octo.nvim",
-  requires = {
-    "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim",
-    "kyazdani42/nvim-web-devicons"
-  },
-  config = get_config("octo")
-}
-
 use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 use { "f-person/git-blame.nvim", config = get_config("git-blame") }
@@ -161,12 +152,6 @@ use { "williamboman/nvim-lsp-installer", config = get_config("lsp") }
 use { "ray-x/lsp_signature.nvim", requires = { { "neovim/nvim-lspconfig" } } }
 
 use { "onsails/lspkind-nvim", requires = { { "famiu/bufdelete.nvim" } } }
-
-use {
-  "simrat39/symbols-outline.nvim",
-  cmd = { "SymbolsOutline" },
-  config = get_config("symbols")
-}
 
 use {
   "lukas-reineke/indent-blankline.nvim",
@@ -204,8 +189,6 @@ use {
 }
 
 use { "ahmedkhalf/project.nvim", config = get_config("project") }
-
-use "ironhouzi/starlite-nvim"
 
 use {
   "folke/which-key.nvim",
