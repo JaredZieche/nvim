@@ -51,6 +51,24 @@ local on_attach = function(client, bufnr)
     "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 end
 
+local mason = require("mason")
+
+mason.setup({
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
+})
+
+local mason_lspconfig = require("mason-lspconfig")
+
+mason_lspconfig.setup({
+    ensure_installed = { "gopls", "bashls", "jedi_language_server", "dockerls", "terraformls", "tsserver", "texlab", "yamlls", "jsonls", "ansiblels" }
+})
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -208,26 +226,7 @@ require "lspconfig".helm_lint_ls.setup {
   capabilities = capabilities
 }
 
-local lsp_installer = require("nvim-lsp-installer")
 
--- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
--- or if the server is already installed).
-lsp_installer.on_server_ready(function(server)
-  server:setup(opts)
-  vim.cmd([[ do User LspAttach Buffers ]])
-  -- This setup() function will take the provided server configuration and decorate it with the necessary properties
-  -- before passing it onwards to lspconfig.
-  -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-end)
-lsp_installer.settings({
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
-    }
-  }
-})
 -- alternative to formatter but yamlfix is not working and I need this for respecting yamllint config
 -- but yamlfix is messing up ansible files ... 😠
 -- require('lspconfig')['efm'].setup{

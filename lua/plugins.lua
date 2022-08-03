@@ -147,7 +147,9 @@ use "famiu/bufdelete.nvim"
 
 use { "neovim/nvim-lspconfig", config = get_config("lsp") }
 
-use { "williamboman/nvim-lsp-installer", config = get_config("lsp") }
+use { "williamboman/mason.nvim", config = get_config("lsp") }
+
+use { "williamboman/mason-lspconfig.nvim", config = get_config("lsp") }
 
 use { "ray-x/lsp_signature.nvim", requires = { { "neovim/nvim-lspconfig" } } }
 
@@ -202,13 +204,6 @@ use "junegunn/vim-easy-align" -- no lua alternative
 use "rhysd/vim-grammarous"
 
 use {
-  "NTBBloodbath/doom-one.nvim",
-  opt = true,
-  cmd = "colorscheme doom-one",
-  config = get_config("doom-one")
-}
-
-use {
   "karb94/neoscroll.nvim",
   keys = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-e>", "zt", "zz", "zb" },
   config = get_config("neoscroll")
@@ -236,6 +231,11 @@ use {
   config = get_config("dashboard")
 }
 
+use {
+  "simrat39/symbols-outline.nvim",
+  cmd = { "SymbolsOutline" },
+  config = get_config("symbols")
+}
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
