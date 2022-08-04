@@ -92,16 +92,7 @@ use { "saadparwaiz1/cmp_luasnip" }
 
 use { "rafamadriz/friendly-snippets", requires = { { "L3MON4D3/LuaSnip" } } }
 
--- use {"bammab/vscode-snippets-for-ansible"} This plugin causes typing lag in yaml files, find a new snippet source or create your own
-
 use { "mhartington/formatter.nvim", config = get_config("formatter") }
-
-use {
-  "phaazon/hop.nvim",
-  branch = "v1",
-  keys = { "<leader>j" },
-  config = get_config("hop"),
-}
 
 -- requirement for Neogit
 use {
@@ -236,6 +227,13 @@ use {
   cmd = { "SymbolsOutline" },
   config = get_config("symbols")
 }
+
+use { "ggandor/leap.nvim",
+  config = function()
+    require "leap".setup {}
+  end
+}
+
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
