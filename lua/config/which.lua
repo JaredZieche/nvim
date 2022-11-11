@@ -148,10 +148,8 @@ wk.register({
         }
     },
     j = {
-        name = "jump",
-        c = {"<cmd>lua require'hop'.hint_char2()<cr>", "2 Chars"},
-        l = {"<cmd>lua require'hop'.hint_lines()<cr>", "Lines"},
-        w = {"<cmd>lua require'hop'.hint_words()<cr>", "Words"}
+        name = "leap",
+        l = {"<cmd>lua require'leap'.leap { target_windows = { vim.fn.win_getid() } }<cr>", "leap"}
     },
     l = {
         name = "LSP",

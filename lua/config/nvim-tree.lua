@@ -104,7 +104,6 @@ require("nvim-tree").setup {
     view = {
         adaptive_size = false,
         centralize_selection = false,
-        height = 30,
         hide_root_folder = false,
         preserve_window_proportions = false,
         number = false,

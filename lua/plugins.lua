@@ -42,7 +42,13 @@ use {
   config = get_config("telescope")
 }
 
-use { "kyazdani42/nvim-tree.lua", config = get_config("nvim-tree") }
+use {
+  "nvim-tree/nvim-tree.lua",
+  config = get_config("nvim-tree"),
+  requires = {
+    'nvim-tree/nvim-web-devicons',
+  }
+}
 
 use { "numToStr/Navigator.nvim", config = get_config("navigator") }
 
@@ -50,7 +56,7 @@ use {
   "nvim-lualine/lualine.nvim",
   config = get_config("lualine"),
   event = "VimEnter",
-  requires = { "kyazdani42/nvim-web-devicons", opt = true }
+  requires = { "nvim-tree/nvim-web-devicons", opt = true }
 }
 
 use {
@@ -129,7 +135,7 @@ use { "kevinhwang91/nvim-bqf", requires = { { "junegunn/fzf" } } }
 use {
   "akinsho/nvim-bufferline.lua",
   tag = "*",
-  requires = "kyazdani42/nvim-web-devicons",
+  requires = "nvim-tree/nvim-web-devicons",
   event = "BufReadPre",
   config = get_config("bufferline")
 }
@@ -168,7 +174,7 @@ use {
 
 use {
   "folke/trouble.nvim",
-  requires = "kyazdani42/nvim-web-devicons",
+  requires = "nvim-tree/nvim-web-devicons",
   cmd = { "TroubleToggle", "Trouble" },
   config = get_config("trouble")
 }
@@ -223,10 +229,15 @@ use {
 }
 
 use {
-  "simrat39/symbols-outline.nvim",
-  cmd = { "SymbolsOutline" },
+  "stevearc/aerial.nvim",
   config = get_config("symbols")
 }
+
+-- use {
+--   "simrat39/symbols-outline.nvim",
+--   cmd = { "SymbolsOutline" },
+--   config = get_config("symbols")
+-- }
 
 use { "ggandor/leap.nvim",
   config = function()
