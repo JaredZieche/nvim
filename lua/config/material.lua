@@ -40,7 +40,13 @@ require("material").setup({
 
     async_loading = true,
 
-    custom_highlights = {} -- Overwrite highlights with your own
+    custom_highlights = {
+        DiffAdd = { bg = "#344a4d", fg = "NONE" },
+        DiffDelete = { bg = "#4b3346", fg = "NONE" },
+        DiffChange = { bg = "#32395c", fg = "NONE" },
+        DiffText = { bg = "#3f4a87", fg = "NONE" },
+        diffChanged = { fg = "#82b1ff" }
+    } -- Overwrite highlights with your own
 })
 
 vim.cmd "colorscheme material"
