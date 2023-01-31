@@ -46,7 +46,7 @@ use {
   "nvim-tree/nvim-tree.lua",
   config = get_config("nvim-tree"),
   requires = {
-    'nvim-tree/nvim-web-devicons',
+    "nvim-tree/nvim-web-devicons",
   }
 }
 
@@ -171,6 +171,8 @@ use {
     require "surround".setup { mappings_style = "surround" }
   end
 }
+
+use "nvim-tree/nvim-web-devicons"
 
 use {
   "folke/trouble.nvim",
