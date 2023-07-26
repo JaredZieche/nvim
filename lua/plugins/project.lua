@@ -1,8 +1,13 @@
-local g = vim.g
-require("project_nvim").setup {
-    patterns = {
-        ".git", "package.json", ".terraform", "go.mod", "requirements.yml"
-    },
-    -- detection_methods = { "lsp", "pattern" },
-    detection_methods = {"pattern"}
+return {
+    "ahmedkhalf/project.nvim",
+    config = function()
+        require("project_nvim").setup {
+            patterns = {
+                ".git", "package.json", ".terraform", "go.mod",
+                "requirements.yml"
+            },
+            -- detection_methods = { "lsp", "pattern" },
+            detection_methods = {"pattern"}
+        }
+    end
 }
