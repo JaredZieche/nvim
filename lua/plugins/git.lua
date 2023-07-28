@@ -1,112 +1,81 @@
 return {
-    {
-        "f-person/git-blame.nvim",
-        lazy = true,
-        config = function()
-            vim.g.gitblame_enabled = 0
-        end
-    }, {
-        "lewis6991/gitsigns.nvim",
-        dependencies = {"nvim-lua/plenary.nvim"},
-        event = "BufReadPre",
-        config = function()
-            require("gitsigns").setup {
-                keymaps = {
-                    -- Default keymap options
-                    noremap = false
-                },
-                signs = {
-                    add = {
-                        hl = "GitSignsAdd",
-                        text = "│",
-                        numhl = "GitSignsAddNr",
-                        linehl = "GitSignsAddLn"
-                    },
-                    change = {
-                        hl = "GitSignsChange",
-                        text = "│",
-                        numhl = "GitSignsChangeNr",
-                        linehl = "GitSignsChangeLn"
-                    },
-                    delete = {
-                        hl = "GitSignsDelete",
-                        text = "_",
-                        numhl = "GitSignsDeleteNr",
-                        linehl = "GitSignsDeleteLn"
-                    },
-                    topdelete = {
-                        hl = "GitSignsDelete",
-                        text = "❗",
-                        numhl = "GitSignsDeleteNr",
-                        linehl = "GitSignsDeleteLn"
-                    },
-                    changedelete = {
-                        hl = "GitSignsChange",
-                        text = "~",
-                        numhl = "GitSignsChangeNr",
-                        linehl = "GitSignsChangeLn"
-                    }
-                },
-                signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-                numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
-                linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-                word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-                watch_gitdir = {interval = 1000, follow_files = true},
-                attach_to_untracked = true,
-                -- git-blame provides also the time in contrast to gitsigns
-                current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-                current_line_blame_formatter_opts = {relative_time = false},
-                sign_priority = 6,
-                update_debounce = 100,
-                status_formatter = nil, -- Use default
-                max_file_length = 40000,
-                preview_config = {
-                    -- Options passed to nvim_open_win
-                    border = "single",
-                    style = "minimal",
-                    relative = "cursor",
-                    row = 0,
-                    col = 1
-                },
-                diff_opts = {internal = true},
-                yadm = {enable = false}
-            }
-        end
-    }, {
-        "TimUntersberger/neogit",
-        dependencies = {"nvim-lua/plenary.nvim"},
-        cmd = "Neogit",
-        config = function()
-            local neogit = require("neogit")
+  {
+    "f-person/git-blame.nvim",
+    lazy = true,
+    config = function()
+        vim.g.gitblame_enabled = 0
+    end
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    dependencies = {"nvim-lua/plenary.nvim"},
+    event = "BufReadPre",
+    opts = {
+      on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
 
-            neogit.setup {
-                disable_signs = false,
-                disable_context_highlighting = false,
-                disable_commit_confirmation = true,
-                -- customize displayed signs
-                signs = {
-                    -- { CLOSED, OPENED }
-                    section = {">", "v"},
-                    item = {">", "v"},
-                    hunk = {"", ""}
-                },
-                kind = "vsplit",
-                integrations = {diffview = true},
-                -- override/add mappings
-                mappings = {
-                    -- modify status buffer mappings
-                    status = {
-                        -- Adds a mapping with "B" as key that does the "BranchPopup" command
-                        ["B"] = "BranchPopup"
-                        -- ["C"] = "CommitPopup",
-                        -- ["P"] = "PullPopup",
-                        -- ["S"] = "Stage",
-                        -- ["D"] = "Discard",
-                        -- Removes the default mapping of "s"
-                        -- ["s"] = "",
-                    }
-                }
-            }
+        local function map(mode, l, r, opts)
+          opts = opts or {}
+          opts.buffer = bufnr
+          vim.keymap.set(mode, l, r, opts)
         end
+
+        -- Navigation
+        map('n', ']c', function()
+          if vim.wo.diff then return ']c' end
+          vim.schedule(function() gs.next_hunk() end)
+          return '<Ignore>'
+        end, {expr=true})
+
+        map('n', '[c', function()
+          if vim.wo.diff then return '[c' end
+          vim.schedule(function() gs.prev_hunk() end)
+          return '<Ignore>'
+        end, {expr=true})
+
+        -- Actions
+        map('n', '<leader>hs', gs.stage_hunk)
+        map('n', '<leader>hr', gs.reset_hunk)
+        map('v', '<leader>hs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+        map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+        map('n', '<leader>hS', gs.stage_buffer)
+        map('n', '<leader>hu', gs.undo_stage_hunk)
+        map('n', '<leader>hR', gs.reset_buffer)
+        map('n', '<leader>hp', gs.preview_hunk)
+        map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+        map('n', '<leader>tb', gs.toggle_current_line_blame)
+        map('n', '<leader>hd', gs.diffthis)
+        map('n', '<leader>hD', function() gs.diffthis('~') end)
+        map('n', '<leader>td', gs.toggle_deleted)
+
+        -- Text object
+        map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+      end,
     }
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {"nvim-lua/plenary.nvim"},
+    cmd = "Neogit",
+    opts = {
+      disable_commit_confirmation = true,
+      kind = "vsplit",
+      integrations = {diffview = true, telescope = true},
+      -- override/add mappings
+    }
+  },
+  {
+    "sindrets/diffview.nvim",
+    cmd = {
+      "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles",
+      "DiffviewFocusFiles"
+    },
+    config = function()
+      local actions = require("diffview.actions")
+
+      require("diffview").setup({
+          enhanced_diff_hl = true
+      })
+    end
+  }
 }
