@@ -1,5 +1,19 @@
 return {
   {
+    "williamboman/mason.nvim",
+    cmd = "Mason",
+    build = ":MasonUpdate",
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "lua_ls", "helm_ls", "gopls", "bashls", "jedi_language_server", "dockerls", "terraformls",
+        "tsserver", "texlab", "yamlls", "jsonls", "ansiblels"
+      },
+    }
+  },
+  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile"},
     dependencies = {
@@ -185,17 +199,6 @@ return {
       }
     end
   },
-  { "williamboman/mason.nvim" },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = {
-        "lua_ls", "helm_ls", "gopls", "bashls", "jedi_language_server", "dockerls", "terraformls",
-        "tsserver", "texlab", "yamlls", "jsonls", "ansiblels"
-      },
-      automatic_installation = true
-    }
-  },
   {
     "mhartington/formatter.nvim",
     opts = {
@@ -287,11 +290,11 @@ return {
       ]], true)
     end
   },
-  {"ray-x/lsp_signature.nvim", dependencies = {"neovim/nvim-lspconfig"}},
   {"onsails/lspkind-nvim", dependencies = {"famiu/bufdelete.nvim"}},
   {
-    "rayx/lsp_signature.nvim",
+    "ray-x/lsp_signature.nvim",
     event = "VeryLazy",
+    dependencies = {"neovim/nvim-lspconfig"},
     opts = {
       bind = true, -- This is mandatory, otherwise border config won't get registered.
       floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
