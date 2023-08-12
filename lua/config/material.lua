@@ -2,6 +2,8 @@ vim.g.material_style = "palenight"
 
 require("material").setup({
 
+    plugins = {"indent-blankline"},
+
     contrast = {
         sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
         floating_windows = true, -- Enable contrast for floating windows
@@ -41,11 +43,11 @@ require("material").setup({
     async_loading = true,
 
     custom_highlights = {
-        DiffAdd = { bg = "#344a4d", fg = "NONE" },
-        DiffDelete = { bg = "#4b3346", fg = "NONE" },
-        DiffChange = { bg = "#32395c", fg = "NONE" },
-        DiffText = { bg = "#3f4a87", fg = "NONE" },
-        diffChanged = { fg = "#82b1ff" }
+        DiffAdd = {bg = "#344a4d", fg = "NONE"},
+        DiffDelete = {bg = "#4b3346", fg = "NONE"},
+        DiffChange = {bg = "#32395c", fg = "NONE"},
+        DiffText = {bg = "#3f4a87", fg = "NONE"},
+        diffChanged = {fg = "#82b1ff"}
     } -- Overwrite highlights with your own
 })
 

@@ -131,7 +131,8 @@ wk.register({
         }
     },
     h = {
-        name = "Harpoon",
+        name = "Harpoon/http",
+        c = {"<cmd>RestNvim<CR>", "Run the request under cursor"},
         a = {"<cmd>lua require('harpoon.mark').add_file()<cr>", "Add file"},
         u = {"<cmd>Telescope harpoon marks<cr>", "Open Menu"},
         ["1"] = {
@@ -149,7 +150,10 @@ wk.register({
     },
     j = {
         name = "leap",
-        l = {"<cmd>lua require'leap'.leap { target_windows = { vim.fn.win_getid() } }<cr>", "leap"}
+        l = {
+            "<cmd>lua require'leap'.leap { target_windows = { vim.fn.win_getid() } }<cr>",
+            "leap"
+        }
     },
     l = {
         name = "LSP",
@@ -198,10 +202,7 @@ wk.register({
     },
     t = {
         name = "Trouble",
-        w = {
-            "<cmd>Trouble workspace_diagnostics<cr>",
-            "Workspace Diagnostics"
-        },
+        w = {"<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics"},
         d = {"<cmd>Trouble document_diagnostics<cr>", "Document Diagnostic"},
         l = {"<cmd>Trouble loclist<cr>", "Loclist"},
         q = {"<cmd>Trouble quickfix<cr>", "Quickfix"},

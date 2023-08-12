@@ -13,6 +13,7 @@ vim.api.nvim_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format()<CR>",
                         opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
+
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -50,6 +51,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr",
                                 "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     require("aerial").on_attach(client, bufnr)
+    require("nvim-navic").on_attach(client, bufnr)
 end
 
 local mason = require("mason")

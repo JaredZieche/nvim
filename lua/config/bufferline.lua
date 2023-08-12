@@ -45,6 +45,12 @@ require("bufferline").setup {
                 highlight = "Directory",
                 padding = 1
             }, {
+                filetype = "Aerial",
+                text = "Symbols",
+                text_align = "center",
+                highlight = "Directory",
+                padding = 1
+            }, {
                 filetype = "SidebarNvim",
                 text = "SideBar",
                 text_align = "center",

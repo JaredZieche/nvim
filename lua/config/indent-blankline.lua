@@ -1,6 +1,16 @@
+vim.opt.termguicolors = true
+vim.cmd [[highlight IndentBlanklineIndent1 guibg=#333333 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guibg=#2a2e38 gui=nocombine]]
+
 require("indent_blankline").setup {
     indentLine_enabled = 1,
-    char = "▏",
+    show_end_of_line = true,
+    char = "",
+    space_char_blankline = " ",
+    char_highlight_list = {"IndentBlanklineIndent1", "IndentBlanklineIndent2"},
+    space_char_highlight_list = {
+        "IndentBlanklineIndent1", "IndentBlanklineIndent2"
+    },
     filetype_exclude = {
         "startify", "dashboard", "dotooagenda", "log", "fugitive", "gitcommit",
         "packer", "vimwiki", "markdown", "json", "txt", "vista", "help",
@@ -11,7 +21,8 @@ require("indent_blankline").setup {
     show_trailing_blankline_indent = false,
     show_first_indent_level = true,
     show_current_context = true,
-    char_list = {"|", "¦", "┆", "┊"},
+    show_current_context_start = true,
+    -- char_list = {"|", "¦", "┆", "┊"},
     space_char = " ",
     context_patterns = {
         "class", "function", "method", "block", "list_literal", "selector",
