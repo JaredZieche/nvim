@@ -1,12 +1,14 @@
 return {
   {
     "ahmedkhalf/project.nvim",
-    opts = {
-      patterns = {
-          ".git", "package.json", ".terraform", "go.mod", "requirements.yml"
-      },
-      -- detection_methods = { "lsp", "pattern" },
-      detection_methods = {"pattern"}
-    }
+    config = function()
+      require("project_nvim").setup {
+        patterns = {
+            ".git", "package.json", ".terraform", "go.mod", "requirements.yml"
+        },
+        -- detection_methods = { "lsp", "pattern" },
+        detection_methods = {"pattern"}
+      }
+    end
   }
 }
