@@ -15,7 +15,8 @@ require("formatter").setup({
                     exe = "lua-format",
                     args = {
                         "-i", "--no-keep-simple-function-one-line",
-                        "--no-break-after-operator", "--break-after-table-lb",
+                        "--no-break-after-operator", "--break-before-table-rb",
+                        "--align-table-field", "--break-after-table-lb",
                         "--no-break-before-functioncall-rp",
                         "--no-chop-down-parameter",
                         "--single-quote-to-double-quote",
