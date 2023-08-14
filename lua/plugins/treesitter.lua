@@ -4,6 +4,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {"nvim-treesitter/nvim-treesitter-textobjects"},
         build = ":TSUpdate",
+        cmd = { "TSUpdateSync" },
         opts = {
             ensure_installed = {
                 "terraform", "markdown", "markdown_inline", "dockerfile",
