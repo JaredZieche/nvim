@@ -3,6 +3,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {"nvim-treesitter/nvim-treesitter-textobjects"},
+        event = "VeryLazy",
         build = ":TSUpdate",
         cmd = { "TSUpdateSync" },
         opts = {
@@ -53,6 +54,10 @@ return {
                 extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
                 max_file_lines = 2000 -- Do not enable for files with more than specified lines
             }
-        }
+        },
+        config = function (_, opts)
+          local configs = require("nvim-treesitter.configs")
+          configs.setup(opts)
+        end
     }
 }

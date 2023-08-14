@@ -1,8 +1,12 @@
+local fn = vim.fn
 return {
   {
-    "akinsho/nvim-toggleterm.lua",
+    "akinsho/toggleterm.nvim",
     version = "*",
-    keys = { {"<C-y>"}, {"<leader>fl"} },
+    keys = {
+      {"<C-y>"},
+      {"<leader>fl"}
+    },
     opts = {
       -- size can be a number or function which is passed the current terminal
       size = function(term)
@@ -37,6 +41,7 @@ return {
       }
     },
     config = function(_, opts)
+      require("toggleterm").setup(opts)
       local Terminal = require("toggleterm.terminal").Terminal
       local lazygit = Terminal:new({
         cmd = "gh dash",

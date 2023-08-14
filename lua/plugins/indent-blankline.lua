@@ -1,6 +1,11 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
+    init = function()
+      vim.opt.termguicolors = true
+      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#333333 gui=nocombine]]
+      vim.cmd [[highlight IndentBlanklineIndent2 guibg=#2a2e38 gui=nocombine]]
+    end,
     opts = {
         indentLine_enabled = 1,
         show_end_of_line = true,
@@ -30,10 +35,5 @@ return {
             "^if", "^table", "if_statement", "while", "for"
         }
 
-    },
-    config = function(_, opts)
-        vim.opt.termguicolors = true
-        vim.cmd [[highlight IndentBlanklineIndent1 guibg=#333333 gui=nocombine]]
-        vim.cmd [[highlight IndentBlanklineIndent2 guibg=#2a2e38 gui=nocombine]]
-    end
+    }
 }

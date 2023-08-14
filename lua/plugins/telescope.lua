@@ -7,8 +7,7 @@ return {
         {"burntsushi/ripgrep"}, {"sharkdp/fd"},
         {"ANGkeith/telescope-terraform-doc.nvim"}
     },
-    opts = {},
-    config = function(_, opts)
+    config = function()
         local actions = require("telescope.actions")
         local telescope = require("telescope")
         telescope.setup({

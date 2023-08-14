@@ -3,10 +3,6 @@ return {
     dependencies = {"nvim-lua/plenary.nvim"},
     event = "BufReadPre",
     opts = {
-        keymaps = {
-            -- Default keymap options
-            noremap = false
-        },
         signs = {
             add = {
                 hl = "GitSignsAdd",
@@ -62,6 +58,5 @@ return {
         },
         diff_opts = {internal = true},
         yadm = {enable = false}
-
     }
 }

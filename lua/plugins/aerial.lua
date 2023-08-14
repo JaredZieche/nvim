@@ -1,6 +1,9 @@
 return {
     "stevearc/aerial.nvim",
     lazy = true,
+    init = function()
+        local map = vim.api.nvim_set_keymap
+    end,
     opts = {
         backends = {"treesitter", "lsp", "markdown", "man"},
 
@@ -206,7 +209,4 @@ return {
             update_delay = 300
         }
     },
-    config = function(_, opts)
-        local map = vim.api.nvim_set_keymap
-    end
 }
