@@ -73,7 +73,7 @@ return {
                                capabilities)
 
             local servers = {
-                "gopls", "bashls", "jedi_language_server", "dockerls",
+                "gopls", "bashls", "pyright", "dockerls", "helm_ls",
                 "terraformls", "tsserver", "texlab", "yamlls", "jsonls",
                 "ansiblels"
             }
@@ -253,9 +253,9 @@ return {
 
             mason_lspconfig.setup({
                 ensure_installed = {
-                    "gopls", "bashls", "jedi_language_server", "dockerls",
-                    "terraformls", "tsserver", "texlab", "yamlls", "jsonls",
-                    "ansiblels"
+                    "gopls", "bashls", "pyright", "dockerls", "helm_ls",
+                    "tflint", "terraformls", "tsserver", "texlab", "yamlls",
+                    "jsonls", "ansiblels"
                 }
             })
         end

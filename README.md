@@ -41,10 +41,11 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 ├── init.lua          # main entry point
 ├── lua
 │   ├── autocmd.lua   # vim autocommands
-│   ├── config/       # each plugin configuration is in its own file
+│   ├── config/       # additional config
+│   ├── plugins/      # each plugin configuration is in its own file
 │   ├── mappings.lua  # Vim keymaps defintions -> config/which.lua for more
 │   ├── options.lua   # non plugin related (vim) options
-│   └── plugins.lua   # define plugins to be managed via Packer
+│   └── plugins.lua   # define plugins with little or no config
 ├── plugins           # packer_compiled
 ├── snippets          # snippets for luasnip
 ```
