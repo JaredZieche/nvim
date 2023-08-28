@@ -1,6 +1,3 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
-
 return {
 	{
 		"glepnir/nerdicons.nvim",
@@ -11,6 +8,7 @@ return {
 	},
 	{
 		"rest-nvim/rest.nvim",
+		event = "VeryLazy",
 		cmd = { "RestNvim", "RestNvimPreview", "RestNvimLast" },
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
@@ -45,38 +43,21 @@ return {
 			})
 		end,
 	},
+	{ "fazibear/cmp-nerdfonts", event = "VeryLazy", config = true },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-	{
-		"f-person/git-blame.nvim",
-		config = function()
-			local g = vim.g
-			g.gitblame_enabled = 0
-		end,
-	},
-	"p00f/nvim-ts-rainbow",
 	{ "kevinhwang91/nvim-bqf", dependencies = { { "junegunn/fzf" } } },
-	"famiu/bufdelete.nvim",
+	{ "famiu/bufdelete.nvim", event = "VeryLazy", config = true },
 	{
-		"ur4ltz/surround.nvim",
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
 		config = function()
-			require("surround").setup({ mappings_style = "surround" })
+			require("nvim-surround").setup()
 		end,
 	},
+	{ "tweekmonster/startuptime.vim" },
+	"p00f/nvim-ts-rainbow",
 	"nvim-tree/nvim-web-devicons",
 	"junegunn/vim-easy-align",
 	"rhysd/vim-grammarous",
-	{ "ThePrimeagen/harpoon", dependencies = { "nvim-lua/plenary.nvim" } },
-	{ "tweekmonster/startuptime.vim" },
-	{
-		"IndianBoy42/tree-sitter-just",
-		config = function()
-			require("tree-sitter-just").setup({})
-		end,
-	},
-	{
-		"ggandor/leap.nvim",
-		config = function()
-			require("leap").setup({})
-		end,
-	},
 }
