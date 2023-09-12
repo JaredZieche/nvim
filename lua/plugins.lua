@@ -46,13 +46,13 @@ return {
 	{ "fazibear/cmp-nerdfonts", event = "VeryLazy", config = true },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{ "kevinhwang91/nvim-bqf", dependencies = { { "junegunn/fzf" } } },
-	{ "famiu/bufdelete.nvim", event = "VeryLazy", config = true },
+	{ "famiu/bufdelete.nvim", event = "VeryLazy" },
 	{
-		"kylechui/nvim-surround",
+		"ur4ltz/surround.nvim",
 		version = "*",
 		event = "VeryLazy",
 		config = function()
-			require("nvim-surround").setup()
+			require("surround").setup({ mappings_style = "surround" })
 		end,
 	},
 	{ "tweekmonster/startuptime.vim" },

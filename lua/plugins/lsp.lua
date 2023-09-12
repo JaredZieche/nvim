@@ -236,6 +236,7 @@ return {
 			local mason = require("mason")
 
 			mason.setup({
+				pip = { upgrade_pip = true },
 				ui = {
 					icons = {
 						server_installed = "✓",
