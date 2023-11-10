@@ -5,6 +5,7 @@ local fn = vim.fn
 vim.cmd("filetype indent plugin on")
 vim.cmd("set inccommand=split")
 vim.cmd("highlight EndOfBuffer guibg=bg guifg=bg")
+vim.cmd("set noswapfile")
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
 o.updatetime = 300 -- faster completion

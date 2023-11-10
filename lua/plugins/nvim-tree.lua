@@ -24,7 +24,7 @@ return {
 				-- Mappings migrated from view.mappings.list
 				--
 				-- You will need to insert "your code goes here" for any mappings with a custom action_cb
-				vim.keymap.set("n", "<CR>", api.node.open.tab, opts("Open: New Tab"))
+				vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open: Edit File"))
 				vim.keymap.set("n", "o", api.node.open.tab, opts("Open: New Tab"))
 				vim.keymap.set("n", "<2-LeftMouse>", api.node.open.tab, opts("Open: New Tab"))
 				vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
