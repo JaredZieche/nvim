@@ -65,6 +65,24 @@ return {
 						padding = 1,
 					},
 				},
+				groups = {
+					options = {
+						toggle_hidden_on_enter = true, -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
+					},
+					items = {
+						{
+							name = "Docs",
+							highlight = { undercurl = true, sp = "green" },
+							auto_close = false, -- whether or not close this group if it doesn't contain the current buffer
+							matcher = function(buf)
+								return buf.filename:match("%.md") or buf.filename:match("%.adoc")
+							end,
+							separator = { -- Optional
+								style = require("bufferline.groups").separator.tab,
+							},
+						},
+					},
+				},
 				show_buffer_icons = true, -- disable filetype icons for buffers
 				show_buffer_close_icons = false,
 				show_close_icon = false,
@@ -75,7 +93,7 @@ return {
 				separator_style = "thin",
 				enforce_regular_tabs = false,
 				always_show_bufferline = false,
-				sort_by = "directory",
+				sort_by = "tabs",
 			},
 		},
 	},
